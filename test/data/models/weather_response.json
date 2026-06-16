@@ -1,0 +1,123 @@
+{
+  "latitude": 55.7558,
+  "longitude": 37.6173,
+  "generationtime_ms": 0.123,
+  "utc_offset_seconds": 10800,
+  "timezone": "Europe/Moscow",
+  "timezone_abbreviation": "MSK",
+  "elevation": 156,
+  "cityName": "Moscow",
+  "current_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature_2m": "°C",
+    "relative_humidity_2m": "%",
+    "apparent_temperature": "°C",
+    "precipitation": "mm",
+    "rain": "mm",
+    "showers": "mm",
+    "snowfall": "cm",
+    "weather_code": "wmo code",
+    "cloud_cover": "%",
+    "pressure_msl": "hPa",
+    "wind_speed_10m": "km/h",
+    "wind_direction_10m": "°",
+    "wind_gusts_10m": "km/h"
+  },
+  "current": {
+    "time": "2026-05-27T12:00",
+    "interval": 900,
+    "temperature_2m": 21.07,
+    "relative_humidity_2m": 59,
+    "apparent_temperature": 20.77,
+    "precipitation": 0,
+    "rain": 0,
+    "showers": 0,
+    "snowfall": 0,
+    "weather_code": 0,
+    "cloud_cover": 6,
+    "pressure_msl": 1026,
+    "wind_speed_10m": 4.82,
+    "wind_direction_10m": 90,
+    "wind_gusts_10m": 4.78
+  },
+  "hourly_units": {
+    "time": "iso8601",
+    "temperature_2m": "°C",
+    "precipitation_probability": "%",
+    "rain": "mm",
+    "weather_code": "wmo code"
+  },
+  "hourly": {
+    "time": [
+      "2026-05-27T09:00",
+      "2026-05-27T10:00",
+      "2026-05-27T11:00",
+      "2026-05-27T12:00"
+    ],
+    "temperature_2m": [
+      20.92,
+      21.0,
+      21.05,
+      21.07
+    ],
+    "precipitation_probability": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "rain": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "weather_code": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "daily_units": {
+    "time": "iso8601",
+    "weather_code": "wmo code",
+    "temperature_2m_max": "°C",
+    "temperature_2m_min": "°C",
+    "sunrise": "iso8601",
+    "sunset": "iso8601"
+  },
+  "daily": {
+    "time": [
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29"
+    ],
+    "weather_code": [
+      0,
+      61,
+      80
+    ],
+    "temperature_2m_max": [
+      21.07,
+      28.8,
+      20.35
+    ],
+    "temperature_2m_min": [
+      15.19,
+      12.56,
+      17.91
+    ],
+    "sunrise": [
+      "2026-05-27T04:30",
+      "2026-05-28T04:31",
+      "2026-05-29T04:32"
+    ],
+    "sunset": [
+      "2026-05-27T21:00",
+      "2026-05-28T21:01",
+      "2026-05-29T21:02"
+    ]
+  }
+}
