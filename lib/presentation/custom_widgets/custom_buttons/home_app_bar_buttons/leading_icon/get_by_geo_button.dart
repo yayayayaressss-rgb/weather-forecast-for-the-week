@@ -80,7 +80,6 @@ class GetByGeoButtonState extends State<GetByGeoButton>
           ),
           _ => DefaultIcon(
             action: () {
-              log('gettt');
               letsEvent();
             },
           ),

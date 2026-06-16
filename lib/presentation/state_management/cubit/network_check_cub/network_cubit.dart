@@ -8,21 +8,20 @@ class NetworkCubit extends Cubit<NetworkState> {
   final NetworkCheckerServ _netWorkCheckService;
 
   NetworkCubit({required NetworkCheckerServ netWorkCheckService})
-    : _netWorkCheckService = netWorkCheckService,
-      super(const NetworkInitial());
+      : _netWorkCheckService = netWorkCheckService,
+        super(const NetworkInitial());
 
   Future<void> check() async {
-    log(' check()');
     final connection = await _netWorkCheckService.checking();
     if (!isClosed) {
       emit(
         connection
             ? const Connected()
             : const Disconnected(
-                failure: NetworkDisconnectionFailure(
-                  message: 'Нет подлючения к интернету',
-                ),
-              ),
+          failure: NetworkDisconnectionFailure(
+            message: 'Нет подлючения к интернету',
+          ),
+        ),
       );
     }
   }

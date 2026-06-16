@@ -13,8 +13,9 @@ class FavoritesUseCase {
   FavoritesUseCase({
     required RemoteDataRepo dataRepo,
     required SharedPreferences sharedPreferences,
-  }) : _sharedPreferences = sharedPreferences,
-       _aRepo = dataRepo;
+  })
+      : _sharedPreferences = sharedPreferences,
+        _aRepo = dataRepo;
 
   Future<bool> checkFavoriteOrNo(String cityName) async {
     final listToCheck = _sharedPreferences.getStringList(FAVORITKEY) ?? [];
@@ -28,7 +29,6 @@ class FavoritesUseCase {
     if (!currentFavoritesList.contains(cityName)) {
       currentFavoritesList.add(cityName);
       await _sharedPreferences.setStringList(FAVORITKEY, currentFavoritesList);
-      log('Added: $cityName, total: ${currentFavoritesList.length}');
     }
   }
 
@@ -42,10 +42,9 @@ class FavoritesUseCase {
           FAVORITKEY,
           currentFavoritesList,
         );
-        log('Removed: $cityName, total: ${currentFavoritesList.length}');
       }
     } catch (e) {
-      log('Error deleting: $e');
+
     }
   }
 

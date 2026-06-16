@@ -30,12 +30,9 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
   }
 
   Future<void> checkFavoriteStatus({required String cityName}) async {
-    log('checking favorite status');
     if (await _useCase.checkFavoriteOrNo(cityName)) {
-      log('its fav');
       emit(Favorite(favorite: true));
     } else {
-      log('not fav');
       emit(UnFavorite(favorite: false));
     }
   }

@@ -27,7 +27,6 @@ class SwitchAppTheme extends StatelessWidget {
         return Switch(
           value: flag,
           onChanged: (value) {
-            log('!!!!!!!!!!!!!!!');
             flag = !flag;
             action();
             context.read<MyBloc>().add(

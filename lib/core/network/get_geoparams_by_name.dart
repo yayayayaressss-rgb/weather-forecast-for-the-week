@@ -32,7 +32,6 @@ Future<ParamsGeo?> getCoordinatesByCityName({
         return ParamsGeo(lat: lat, lon: lon);
       }
     }
-    log('fail');
     return null;
   } catch (e) {
     log('Ошибка при геокодинге: $e');

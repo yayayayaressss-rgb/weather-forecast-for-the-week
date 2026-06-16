@@ -40,7 +40,6 @@ class UnitsMapper {
   }
 
   MeteoEntity toImperial(MeteoEntity entity) {
-    log('pars to Imperial');
     return MeteoEntity(
       cityName: entity.cityName,
       location: LocationInfo(
@@ -83,7 +82,6 @@ class UnitsMapper {
   }
 
   MeteoEntity toMetric(MeteoEntity entity) {
-    log('pars to Metric');
     return MeteoEntity(
       cityName: entity.cityName,
       location: LocationInfo(

@@ -89,7 +89,6 @@ class MyBloc extends Bloc<EventW, StateW> {
     GetAllFavoritesCityData event,
     Emitter<StateW> emit,
   ) async {
-    log('_getAllFavoritesCityData');
     emit(const LoadingState());
     final List<String> favoritesCityNames = await _favoritesUseCase
         .getFavoritesList();
@@ -131,7 +130,6 @@ class MyBloc extends Bloc<EventW, StateW> {
         ),
       );
     }
-    log('end');
   }
 
   Future<void> _getDataFromCache(
@@ -144,14 +142,12 @@ class MyBloc extends Bloc<EventW, StateW> {
     for (final city in listCityNames) {
       final result = await _localDataUseCase.loadFromCache(cityName: city);
       result.fold((l) => emit(FailureState(failure: l)), (r) {
-        log('is metric = ${event.isMetric.toString()}');
         if (event.isMetric == false) {
           currentWeatherListT.add(_unitMapper.toImperial(r));
         } else {
           currentWeatherListT.add(r);
         }
       });
-      log('${currentWeatherListT.length.toString()} => currentWeatherList');
     }
     emit(
       LoadedAllFavoritesCityData(

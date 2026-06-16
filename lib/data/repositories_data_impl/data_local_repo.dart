@@ -22,7 +22,6 @@ class DataLocalRepoIMPL implements DataLocalRepo {
   Future<Either<Failure, MeteoEntity>> getFromCache({
     required String stringKey,
   }) async {
-    log('read cache');
     try {
       final rawData = _shared.getString(stringKey) ?? '';
 

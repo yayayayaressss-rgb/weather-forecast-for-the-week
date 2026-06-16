@@ -57,7 +57,6 @@ class RemoteDataUseCase {
   }
 
   Future<void> _saveRemotedData(MeteoEntity data) async {
-    log('save to cahce ${data.current.temperature}');
     aRepo.saveToCache(data);
   }
 }
