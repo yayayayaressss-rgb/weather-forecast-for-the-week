@@ -3,15 +3,10 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i3;
 
-import 'package:dartz/dartz.dart' as _i2;
-import 'package:forecast_app_pet_proj/data/repositories_data_impl/data_remote_repo.dart'
-    as _i3;
-import 'package:forecast_app_pet_proj/domain/entities/meteo_enity/meteo_enity.dart'
-    as _i6;
-import 'package:forecast_app_pet_proj/domain/failures/failure_interface.dart'
-    as _i5;
+import 'package:forecast_app_pet_proj/data/repositories_data_impl/favorite_repo.dart'
+    as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -29,73 +24,45 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
 
-class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
-  _FakeEither_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
-}
-
-/// A class which mocks [DataRemoteRepoIMPL].
+/// A class which mocks [FavoriteRepoIMPL].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDataRemoteRepoIMPL extends _i1.Mock
-    implements _i3.DataRemoteRepoIMPL {
-  MockDataRemoteRepoIMPL() {
-    _i1.throwOnMissingStub(this);
-  }
+class MockFavoriteRepoIMPL extends _i1.Mock implements _i2.FavoriteRepoIMPL {
+  @override
+  _i3.Future<void> addCityToFavorites(String? cityName) =>
+      (super.noSuchMethod(
+            Invocation.method(#addCityToFavorites, [cityName]),
+            returnValue: _i3.Future<void>.value(),
+            returnValueForMissingStub: _i3.Future<void>.value(),
+          )
+          as _i3.Future<void>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.MeteoEntity>> getRespByName({
-    required bool? isMetric,
-    required String? name,
-  }) =>
+  _i3.Future<bool> checkFavoriteOrNo(String? cityName) =>
       (super.noSuchMethod(
-            Invocation.method(#getRespByName, [], {
-              #isMetric: isMetric,
-              #name: name,
-            }),
-            returnValue:
-                _i4.Future<_i2.Either<_i5.Failure, _i6.MeteoEntity>>.value(
-                  _FakeEither_0<_i5.Failure, _i6.MeteoEntity>(
-                    this,
-                    Invocation.method(#getRespByName, [], {
-                      #isMetric: isMetric,
-                      #name: name,
-                    }),
-                  ),
-                ),
+            Invocation.method(#checkFavoriteOrNo, [cityName]),
+            returnValue: _i3.Future<bool>.value(false),
+            returnValueForMissingStub: _i3.Future<bool>.value(false),
           )
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.MeteoEntity>>);
+          as _i3.Future<bool>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.MeteoEntity>> getRespByGeo({
-    required bool? isMetric,
-  }) =>
+  _i3.Future<void> deleteFromFavorites(String? cityName) =>
       (super.noSuchMethod(
-            Invocation.method(#getRespByGeo, [], {#isMetric: isMetric}),
-            returnValue:
-                _i4.Future<_i2.Either<_i5.Failure, _i6.MeteoEntity>>.value(
-                  _FakeEither_0<_i5.Failure, _i6.MeteoEntity>(
-                    this,
-                    Invocation.method(#getRespByGeo, [], {#isMetric: isMetric}),
-                  ),
-                ),
+            Invocation.method(#deleteFromFavorites, [cityName]),
+            returnValue: _i3.Future<void>.value(),
+            returnValueForMissingStub: _i3.Future<void>.value(),
           )
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.MeteoEntity>>);
+          as _i3.Future<void>);
 
   @override
-  _i4.Future<bool> getPermission() =>
+  _i3.Future<List<String>> getFavoritesList() =>
       (super.noSuchMethod(
-            Invocation.method(#getPermission, []),
-            returnValue: _i4.Future<bool>.value(false),
+            Invocation.method(#getFavoritesList, []),
+            returnValue: _i3.Future<List<String>>.value(<String>[]),
+            returnValueForMissingStub: _i3.Future<List<String>>.value(
+              <String>[],
+            ),
           )
-          as _i4.Future<bool>);
-
-  @override
-  _i4.Future<void> saveToCache(_i6.MeteoEntity? data) =>
-      (super.noSuchMethod(
-            Invocation.method(#saveToCache, [data]),
-            returnValue: _i4.Future<void>.value(),
-            returnValueForMissingStub: _i4.Future<void>.value(),
-          )
-          as _i4.Future<void>);
+          as _i3.Future<List<String>>);
 }

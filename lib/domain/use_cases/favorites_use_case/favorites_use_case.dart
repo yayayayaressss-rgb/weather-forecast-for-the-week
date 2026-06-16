@@ -1,54 +1,23 @@
-import 'dart:developer';
-
-import 'package:shared_preferences/shared_preferences.dart';
-import '../../entities/meteo_enity/meteo_enity.dart';
-import '../../repositories_interface/remote_data_repo.dart';
-
-const String FAVORITKEY = 'favorite';
+import 'package:forecast_app_pet_proj/data/repositories_data_impl/favorite_repo.dart';
 
 class FavoritesUseCase {
-  final SharedPreferences _sharedPreferences;
-  final RemoteDataRepo _aRepo;
+  final FavoriteRepoIMPL _aRepo;
 
-  FavoritesUseCase({
-    required RemoteDataRepo dataRepo,
-    required SharedPreferences sharedPreferences,
-  })
-      : _sharedPreferences = sharedPreferences,
-        _aRepo = dataRepo;
+  FavoritesUseCase({required FavoriteRepoIMPL aRepo}) : _aRepo = aRepo;
 
   Future<bool> checkFavoriteOrNo(String cityName) async {
-    final listToCheck = _sharedPreferences.getStringList(FAVORITKEY) ?? [];
-    return listToCheck.contains(cityName);
+    return _aRepo.checkFavoriteOrNo(cityName);
   }
 
   Future<void> addCityToFavorites(String cityName) async {
-    final List<String> currentFavoritesList =
-        _sharedPreferences.getStringList(FAVORITKEY) ?? [];
-
-    if (!currentFavoritesList.contains(cityName)) {
-      currentFavoritesList.add(cityName);
-      await _sharedPreferences.setStringList(FAVORITKEY, currentFavoritesList);
-    }
+    _aRepo.addCityToFavorites(cityName);
   }
 
   Future<void> deleteFromFavorites(String cityName) async {
-    try {
-      final List<String> currentFavoritesList =
-          _sharedPreferences.getStringList(FAVORITKEY) ?? [];
-
-      if (currentFavoritesList.remove(cityName)) {
-        await _sharedPreferences.setStringList(
-          FAVORITKEY,
-          currentFavoritesList,
-        );
-      }
-    } catch (e) {
-
-    }
+    _aRepo.deleteFromFavorites(cityName);
   }
 
   Future<List<String>> getFavoritesList() async {
-    return _sharedPreferences.getStringList(FAVORITKEY) ?? [];
+    return _aRepo.getFavoritesList();
   }
 }

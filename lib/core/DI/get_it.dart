@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:forecast_app_pet_proj/core/network/dio_client.dart';
 import 'package:forecast_app_pet_proj/core/services/geo/geo_location_service.dart';
 import 'package:forecast_app_pet_proj/data/mappers/units_mapepr.dart';
+import 'package:forecast_app_pet_proj/data/repositories_data_impl/favorite_repo.dart';
 import 'package:forecast_app_pet_proj/domain/repositories_interface/data_local_repo_inter.dart';
 import 'package:forecast_app_pet_proj/domain/use_cases/favorites_use_case/favorites_use_case.dart';
 import 'package:forecast_app_pet_proj/domain/use_cases/get_data_to_bottom_card/get_to_bottom_card_use_case.dart';
@@ -13,6 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../data/mappers/weather_mapper.dart';
 import '../../data/repositories_data_impl/data_local_repo.dart';
 import '../../data/repositories_data_impl/data_remote_repo.dart';
+import '../../domain/repositories_interface/favorite_repo_inter.dart';
 import '../../domain/repositories_interface/remote_data_repo.dart';
 import '../../domain/use_cases/local_data_use_case/local_data_source_use_case.dart';
 import '../../domain/use_cases/remote_data_use_cases/remote_data_use_case.dart';
@@ -55,10 +57,13 @@ Future<void> getStart() async {
       mapper: getIt(),
     ),
   );
+  getIt.registerLazySingleton<FavoriteRepo>(
+    () => FavoriteRepoIMPL(sharedPreferences: sharedPreferences),
+  );
 
   /// use cases ///
   getIt.registerFactory<FavoritesUseCase>(
-    () => FavoritesUseCase(dataRepo: getIt(), sharedPreferences: getIt()),
+    () => FavoritesUseCase(aRepo: getIt()),
   );
   getIt.registerFactory<GetToBottomCardUseCase>(
     () => GetToBottomCardUseCase(aRepo: getIt()),

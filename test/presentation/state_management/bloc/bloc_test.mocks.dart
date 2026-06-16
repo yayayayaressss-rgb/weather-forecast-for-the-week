@@ -107,15 +107,6 @@ class MockLocalDataSourceUseCase extends _i1.Mock
           as _i2.DataLocalRepo);
 
   @override
-  _i10.Future<void> cleanCache() =>
-      (super.noSuchMethod(
-            Invocation.method(#cleanCache, []),
-            returnValue: _i10.Future<void>.value(),
-            returnValueForMissingStub: _i10.Future<void>.value(),
-          )
-          as _i10.Future<void>);
-
-  @override
   _i10.Future<_i3.Either<_i11.Failure, _i12.MeteoEntity>> loadFromCache({
     required String? cityName,
   }) =>
